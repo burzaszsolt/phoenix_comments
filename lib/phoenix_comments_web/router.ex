@@ -8,6 +8,7 @@ defmodule PhoenixCommentsWeb.Router do
     plug :put_root_layout, html: {PhoenixCommentsWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug PhoenixCommentsWeb.Plugs.SetUser
   end
 
   pipeline :api do
@@ -18,6 +19,14 @@ defmodule PhoenixCommentsWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+  end
+
+  scope "/auth", PhoenixCommentsWeb do
+    pipe_through(:browser)
+
+    get("/signout", AuthController, :signout)
+    get("/:provider", AuthController, :request)
+    get("/:provider/callback", AuthController, :callback)
   end
 
   # Other scopes may use custom stacks.
