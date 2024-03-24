@@ -1,7 +1,14 @@
 <.flash_group flash={@flash} />
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut euismod luctus
+  quam in euismod. Nam ut diam nec erat convallis pharetra. Pellentesque in
+  augue sagittis, ullamcorper nunc non, vestibulum tortor. Vestibulum et mi
+  sollicitudin risus tempus efficitur in non nibh. Curabitur at consequat nibh,
+  ac scelerisque sapien.
+</p>
+<br />
 <%= if @conn.assigns.user do %>
-  <h2>Welcome <%= @conn.assigns.user.name %></h2>
+<h2>Welcome <%= @conn.assigns.user.name %>!</h2>
 <% else %>
-  <h2 class="text-2xl">Welcome to PhoenixMessenger!</h2>
-  <h3>Please log in to start messaging.</h3>
+<h3>Please log in to start commenting.</h3>
 <% end %>
