@@ -2,6 +2,8 @@ defmodule PhoenixComments.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @derive {Jason.Encoder, only: [:url, :name]}
+
   schema "users" do
     field(:url, :string)
     field(:name, :string)

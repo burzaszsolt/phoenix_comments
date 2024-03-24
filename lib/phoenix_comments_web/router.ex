@@ -11,6 +11,10 @@ defmodule PhoenixCommentsWeb.Router do
     plug PhoenixCommentsWeb.Plugs.SetUser
   end
 
+  pipeline :secured do
+    plug(PhoenixCommentsWeb.Plugs.SetUser)
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end

@@ -8,11 +8,19 @@
 </p>
 <br />
 <%= if @conn.assigns.user do %>
-<.form :let={f} for={@changeset} phx-change="validate" phx-submit="save" action={~p"/comments"}>
-  <.input field={f[:content]} type="text" value={} />
-  <.button type="submit" class="mt-2">Save</.button>
-</.form>
-
+  <div class="mt-2">
+    <.input type="textarea" name="comment" value="" />
+    <button id="add-comment-btn" class="bg-teal-500 text-white py-1 px-3 uppercase rounded-sm shadow-lg mt-1">
+      Add comment
+    </button>
+    <ul class="comment-list divide-y divide-gray-100"></ul>
+  </div>
 <% else %>
-<h3>Please log in to start commenting.</h3>
+  <h3>Please log in to start commenting.</h3>
 <% end %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    window.createSocket()
+  })
+</script>
