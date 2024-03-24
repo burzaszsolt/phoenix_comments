@@ -19,6 +19,7 @@ defmodule PhoenixCommentsWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    post "/comments", PageController, :create
   end
 
   scope "/auth", PhoenixCommentsWeb do

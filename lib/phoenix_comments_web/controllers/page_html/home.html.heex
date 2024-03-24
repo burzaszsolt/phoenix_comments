@@ -8,7 +8,11 @@
 </p>
 <br />
 <%= if @conn.assigns.user do %>
-<h2>Welcome <%= @conn.assigns.user.name %>!</h2>
+<.form :let={f} for={@changeset} phx-change="validate" phx-submit="save" action={~p"/comments"}>
+  <.input field={f[:content]} type="text" value={} />
+  <.button type="submit" class="mt-2">Save</.button>
+</.form>
+
 <% else %>
 <h3>Please log in to start commenting.</h3>
 <% end %>

@@ -8,6 +8,7 @@ defmodule PhoenixComments.User do
     field(:provider, :string)
     field(:token, :string)
     field(:profile_image, :string)
+    has_many(:comments, PhoenixComments.Comment)
 
     timestamps()
   end
